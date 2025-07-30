@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 Weeks Marketing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8fafc;
+    }
+
+    .navbar {
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a1a1a;
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      font-weight: 700;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-menu li {
+      margin: 0 24px;
+    }
+
+    .nav-menu a {
+      color: #64748b;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color .2s;
+    }
+
+    .nav-menu a:hover {
+      color: #1a1a1a;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-selector {
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .cta-btn {
+      background: #6366f1;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all .2s;
+    }
+
+    .cta-btn:hover {
+      background: #4f46e5;
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #64748b;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0,0,0,.1);
+        flex-direction: column;
+        padding: 20px 0;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu li {
+        margin: 8px 0;
+        text-align: center;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .lang-selector {
+        display: none;
+      }
+    }
+
+    .demo-content {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .demo-content h1 {
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    .demo-content p {
+      font-size: 1.1rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .reg-form {
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .reg-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .reg-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .reg-form input, .reg-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+      transition: border-color 0.3s;
+    }
+
+    .reg-form input:focus, .reg-form textarea:focus {
+      border-color: #6366f1;
+      outline: none;
+      box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+    }
+
+    .reg-form button {
+      width: 100%;
+      padding: 10px;
+      background: #6366f1;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .reg-form button:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .success-message {
+      color: green;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">6</span> WEEKS MARKETING
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#">Послуги</a></li>
+        <li><a href="#">Про нас</a></li>
+        <li><a href="#">Ціни</a></li>
+        <li><a href="#">Проекти</a></li>
+        <li><a href="#">Блог</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-selector">Eng | Рус | Укр</div>
+        <a href="#" class="cta-btn">Залишити заявку</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="demo-content">
+    <h1>Ласкаво просимо до 6 Weeks Marketing</h1>
+    <p>Ми спеціалізуємося на цифровому маркетингу, SEO, SMM та багатьох інших послугах для розвитку вашого бізнесу.</p>
+  </div>
+
+  <div class="reg-form">
+    <h2>Форма зв’язку</h2>
+    <form id="contactForm" action="https://formspree.io/f/manbbqgy" method="POST">
+      <label for="name">Ім’я (необов’язково):</label>
+      <input type="text" name="name" id="name">
+
+      <label for="email">Email <span style="color:red;">*</span>:</label>
+      <input type="email" name="email" id="email" required>
+      <span id="emailError" class="error-message"></span>
+
+      <label for="message">Повідомлення:</label>
+      <textarea name="message" id="message" rows="4"></textarea>
+
+      <button type="submit">Надіслати</button>
+      <p id="successMsg" class="success-message" style="display: none;">Форма успішно надіслана!</p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      const email = document.getElementById('email').value.trim();
+      const emailError = document.getElementById('emailError');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      emailError.textContent = '';
+
+      if (!emailRegex.test(email)) {
+        event.preventDefault();
+        emailError.textContent = 'Введіть коректний Email.';
+      }
+    });
+  </script>
+</body>
+</html>
